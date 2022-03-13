@@ -2,6 +2,7 @@ import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Paragraph;
 
 import java.io.FileNotFoundException;
 
@@ -17,7 +18,15 @@ public class CreatePDF {
         // First set size of page.
         pdfDocument.setDefaultPageSize(PageSize.A4);
 
+        Invoice invoice = new Invoice();
 
+        document.add(invoice.addHeaderTableToPDF());
+        document.add(new Paragraph("\n"));
+        document.add(invoice.customerInfoTable());
+        document.add(new Paragraph("\n"));
+        document.add(invoice.itemInfoTable());
+        document.add(new Paragraph("\n\n"));
+        invoice.signatory(document);
 
         document.close();
         System.out.println("Your PDF invoice has been created!!!");
