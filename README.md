@@ -3,7 +3,7 @@
 The code in this repository, generates a PDF invoice using the iText 7 Suite High Level API. See/download the generated PDF in `invoice.pdf`.
 
 ## Prerequisite
-To follow along in this README.md, first read this article on [Getting Started with iText 7 Suite in Java]()
+To follow along in this `README.md`, first read this article on [Getting Started with iText 7 Suite in Java]()
 
 
 ## How it works
