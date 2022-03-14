@@ -15,13 +15,13 @@ public class CreatePDF {
         pdfDocument.addNewPage();
         Document document = new Document(pdfDocument);
 
-        // First set size of page.
+        // Sets the size of page.
         pdfDocument.setDefaultPageSize(PageSize.A4);
 
         Invoice invoice = new Invoice();
 
         document.add(invoice.addHeaderTableToPDF());
-        document.add(new Paragraph("\n"));
+        document.add(new Paragraph("\n")); // Adds whitespace between the tables
         document.add(invoice.customerInfoTable());
         document.add(new Paragraph("\n"));
         document.add(invoice.itemInfoTable());
@@ -29,7 +29,7 @@ public class CreatePDF {
         invoice.signatory(document);
 
         document.close();
-        System.out.println("Your PDF invoice has been created!!!");
+        System.out.println("Your PDF invoice has been created!!!"); // Prints after the Invoice has been generated
     }
 
 }
